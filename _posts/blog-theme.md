@@ -1,8 +1,8 @@
 ---
 title: 博客美化
-date: 2019-12-25 23:16:00
+date: 2019-12-24 23:16:00
 tags: 
-- hexo
+- kaze
 categories:
 - 博客搭建
 ---
@@ -18,7 +18,7 @@ categories:
 * 博客搭建完毕后, 可以对其进行一定的美化, 可以使用 kaze 主题
 
   ```sh
-  # 在hexo根目录下,使用ssh克隆
+  # 在博客根目录下,克隆kaze
   $ git clone git@github.com:theme-kaze/hexo-theme-kaze.git themes/kaze
   ```
 
