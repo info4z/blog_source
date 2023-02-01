@@ -1,8 +1,6 @@
 ---
 title: 博客搭建
 date: 2019-12-24 22:42:54
-tags: 
-- hexo
 categories:
 - 博客搭建
 ---
@@ -11,7 +9,7 @@ categories:
 
 > 基于 hexo 在 github 上搭建属于自己的博客
 
-# 一 : nodejs
+## 一 : nodejs
 
 * 官网 : https://nodejs.org/zh-cn/
 
@@ -24,7 +22,7 @@ categories:
   $ node -v
   ```
 
-# 二 : npm
+## 二 : npm
 
 * `node.js` 自带 `npm`
 
@@ -59,7 +57,7 @@ categories:
   $ cnpm -v
   ```
 
-# 三 : hexo
+## 三 : hexo
 
 * 使用 npm 安装 hexo
 
@@ -75,28 +73,37 @@ categories:
   $ hexo init
   ```
 
-* 静态部署
+* 生成工具栏
 
   ```sh
-  # generate : Generate static files
-  $ hexo g
+  $ hexo new page tags 		# 新增标签
+  $ hexo new page categories	# 新增分类
   ```
 
-* 启动服务
+* 新写文章
+
+  ```shell
+  # 这里
+  $ hexo new "文章题目"
+  ```
+
+* 本地启动
 
   ```sh
-  #  server : Start the server
+  $ hexo server
   $ hexo s
   ```
 
-* 标签和分类
+* 生成静态文件
 
   ```sh
-  $ hexo new page tags
-  $ hexo new page categories
+  $ hexo generate
+  $ hexo g
   ```
 
-# 四 : github
+
+
+## 四 : github
 
 * 创建仓库, 这里只需要注意 `repository name` 的值为 : ` 用户名.github.io`
 

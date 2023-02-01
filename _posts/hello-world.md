@@ -1,8 +1,6 @@
 ---
 title: Hello World
 date: 2019-12-24 08:19:00
-tags: 
-- hexo
 categories:
 - 博客搭建
 ---

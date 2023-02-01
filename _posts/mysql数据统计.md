@@ -15,7 +15,7 @@ categories:
 
 
 
-# 一 : 库表结构
+## 一 : 库表结构
 
 * MySQL 的 information_schema 数据库, 保存着数据库的容量和使用信息, 可查询数据库中每个表占用的空间, 表记录的行数
 
@@ -60,9 +60,9 @@ categories:
 
 
 
-# 二 : 查询示例
+## 二 : 查询示例
 
-## (一) 数据总占用量
+### (一) 数据总占用量
 
 * 求和 => 单位转换 => 加单位
 
@@ -72,7 +72,7 @@ categories:
   from information_schema.TABLES
   ```
 
-## (二) 每个表占用量
+### (二) 每个表占用量
 
 * table_name, table_rows, data_length
 
