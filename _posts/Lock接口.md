@@ -65,7 +65,7 @@ public class Demo {
 
 - 初始化 : 未锁, ReentrantLock, 持有者(null), 计数(0)
 - 调用 a() : 第一次锁, ReentrantLock, 持有者(线程-0), 计数(1) 
-- b() 中又调用 x() : 第二次锁, ReentrantLock, 持有者(线程-0), 计数(2)
+- a() 中又调用 b() : 第二次锁, ReentrantLock, 持有者(线程-0), 计数(2)
 - b() 执行完毕 : 解锁, ReentrantLock, 持有者(线程-0), 计数(1)
 - a() 执行完毕 : 解锁, ReentrantLock, 持有者(null), 计数(0)
 
