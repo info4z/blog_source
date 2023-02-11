@@ -1,6 +1,6 @@
 ---
 title: JAVA锁相关术语及同步关键字synchronized
-date: 2020-04-24
+date: 2020-04-17
 categories:
 - 高性能编程
 tags: 
@@ -116,11 +116,11 @@ HotSpot 中, 对象在内存中存储的布局可以分为三块区域 : **对�
 
 加锁前
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230120130607774.png)
+![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230120130607774.png) 
 
 加锁后
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230120130718713.png)
+![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230120130718713.png) 
 
 使用 CAS 修改 mark word 完毕, 则 mark word 中的 tag 进入 00 状态
 

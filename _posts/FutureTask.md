@@ -1,6 +1,6 @@
 ---
 title: FutureTask源码剖析
-date: 2020-06-19
+date: 2020-06-12
 categories:
 - 高性能编程
 tags: 
@@ -50,7 +50,7 @@ Future 和 Callable
 
 ## 二 : FutureTask 应用
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230201192146661.png)
+![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230201192146661.png) 
 
 总的执行时间, 取决于执行最慢的逻辑
 

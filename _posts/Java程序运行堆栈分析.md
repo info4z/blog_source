@@ -89,7 +89,7 @@ CPU 同一时间, 只会执行一条线程中的指令; `jvm` 多线程会轮流
 
 class 文件包含 java 程序执行的字节码; 数据严格按照格式紧凑排列在class文件中的二进制流,中间无任何分隔符; 文件开头有一个`ca fe ba be` (16进制)特殊的一个标志; 
 
-![img](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/5292090a-3c9a-49b4-b75d-6193f27cc906-8352070.jpg)
+![img](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/5292090a-3c9a-49b4-b75d-6193f27cc906-8352070.jpg) 
 
 这个文件具有复杂且严格的格式, 专门给 jvm 读取其中的内容, 人类可以借助工具查看; 其中包含 : 版本信息, 访问标志, 常量池, 当前类, 超级类, 接口, 字段, 方法, 属性等信息
 
@@ -228,9 +228,9 @@ HotSpot 虚拟机 : 1.7及之前称为永久代, 1.8开始称为元数据空间�
 
 ### (三) 方法区程序入口
 
-* main 方法栈帧初始化 : 5个本地变量, 变量0是方法参数 args
+main 方法栈帧初始化 : 5个本地变量, 变量0是方法参数 args
 
-  ![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/execute/execute_00.png)
+![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/execute/execute_00.png) 
 
 ### (四) 程序执行过程
 

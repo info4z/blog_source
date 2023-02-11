@@ -1,6 +1,6 @@
 ---
 title: CAS机制和Atomic相关类
-date: 2020-04-17
+date: 2020-04-10
 categories:
 - 高性能编程
 tags: 
@@ -20,7 +20,7 @@ Compare and swap 比较和交换; 属于硬件同步原语, 处理器提供了�
 
 CAS 操作需要输入两个数值, 一个旧值 A (期望操作前的值)和一个新值 B, 在操作期间先比较下旧值有没有发生变化, 如果没有发生变化, 才交换成新值, 发生了变化则不交换
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230116002157950.png)
+![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230116002157950.png) 
 
 JAVA 中的 sun.misc.Unsafe 类, 提供了 `compareAndSwapInt()` 和 `compareAndSwapLong()` 等几个方法实现 CAS
 
