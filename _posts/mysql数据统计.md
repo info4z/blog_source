@@ -1,17 +1,12 @@
 ---
 title: mysql数据统计
+excerpt: 统计数据占用磁盘空间的大小
 date: 2023-01-06
-tags: 
-- mysql
-categories:
-- 数据库
+categories: 数据库
+tags: mysql
 ---
 
 
-
-
-
-> 统计数据占用磁盘空间的大小
 
 
 

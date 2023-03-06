@@ -1,16 +1,12 @@
 ---
 title: NIO非阻塞网络编程
+excerpt: NIO, New IO, No Blocking IO, 提供了非阻塞IO, 线程利用率大大提高, 在Tomcat8中已经完全取代了BIO
 date: 2020-07-10
-categories:
-- 高性能编程
-tags: 
-- 高并发网络编程
-- NIO网络编程
+categories: 高性能编程
+tags: [高并发网络编程, NIO网络编程]
 ---
 
 
-
-> NIO : New IO, No Blocking IO, 提供了非阻塞IO, 线程利用率大大提高, 在Tomcat8中已经完全取代了BIO
 
 
 
@@ -92,7 +88,7 @@ Buffer **三个重要属性**
 
 读写模式
 
-![读写模式](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230202010548467.png) 
+![读写模式](../java/image-2020071001.png) 
 
 ### (二) ByteBuffer 内存类型
 
@@ -119,9 +115,19 @@ ByteBuffer directByteBuffer = ByteBuffer.allocateDirect(4);
 
 ## 三 : Channel 通道
 
-在 BIO 编程中一切网络操作是通过 socket + io 两者组合进行操作的, 也就是需要 io 包和 net 包; 而在 NIO 中则只需要 nio 包即可
+在 BIO 编程中一切网络操作是通过 socket + io 两者组合进行操作的, 也就是需要 io 包和 net 包; 
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230202113030255.png) 
+```mermaid
+graph LR
+A1[代码] --byte数据写入--> outputStream ---|网络| inputStream --代码读取内容,read阻塞读取--> B1[代码]
+```
+
+而在 NIO 中则只需要 nio 包即可
+
+```mermaid
+graph LR
+A2[代码] --> B2[buffer] -->|缓冲区数据写入通道| C2[channel] ---|网络| D2[channel] -->|通道数据写入缓冲区| E2[buffer] --> F2[代码] 
+```
 
 Channel 的 API 涵盖了 UDP/TCP 网络和文件 IO
 
@@ -253,7 +259,13 @@ public class NIOServer {
 
 Selector 是一个 java NIO 组件, 可以检查一个或多个 NIO 通道, 并确定哪些通道已准备好进行读取或写入; **实现单个线程可以管理多个通道, 从而管理多个网络连接**
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230202143007451.png)  
+```mermaid
+graph LR
+Thread --> Selector 
+Selector --> A1[Channel]
+Selector --> A2[Channel]
+Selector --> A3[Channel]  
+```
 
 一个线程使用 Selector 监听多个 channel 的不同事件(四个事件分别对应 SelectionKey 四个常量) : 
 
@@ -379,7 +391,7 @@ public class NIOServerV2 {
 
 BIO 线程模型
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230202154936393.png) 
+![](../java/image-2020071002.png) 
 
 - 阻塞 IO , 线程等待时间长
 - 一个线程负责一个连接处理
@@ -387,7 +399,7 @@ BIO 线程模型
 
 NIO 线程模型
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230202155404004.png) 
+![](../java/image-2020071003.png) 
 
 - 非阻塞 IO , 线程利用率更高
 - 一个线程处理多个连接事件
@@ -401,11 +413,11 @@ Doug Lea 的著名文章《Scalable IO in Java》; 地址 : http://gee.cs.oswego
 
 **Worker Thread Pools** : Reactor 线程接收请求 => 分发给线程池处理请求
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230202155938184.png) 
+![](../java/image-2020071004.png) 
 
 **Using Multiple Reactors** : mainReactor 接收 => 分发给 subReactor 读写 => 具体业务逻辑分发给单独的线程池处理
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230202160122591.png) 
+![](../java/image-2020071005.png) 
 
 代码示例 : NIO selector 多路复用reactor线程模型
 

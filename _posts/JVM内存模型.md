@@ -1,18 +1,12 @@
 ---
 title: JVM内存模型
+excerpt: 理解 jvm 内存模型可以有助于分析解决多线程种遇到的问题
 date: 2020-03-06
-categories:
-- 高性能编程
-tags: 
-- 多线程并发编程
-- 线程安全
+categories: 高性能编程
+tags: [多线程并发编程, 线程安全]
 ---
 
 
-
-
-
-> 理解 jvm 内存模型可以有助于分析解决多线程种遇到的问题
 
 
 
@@ -27,7 +21,7 @@ tags:
 
 每个线程都有自己的工作内存; 如果想要数据共享, 需要存放在主内存中
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230115181740141.png) 
+![image-2020030601](../java/image-2020030601.png) 
 
 因为这种内存结构, 在多线程下数据交互会有各种情况出现
 
@@ -35,7 +29,7 @@ tags:
 
 cpu 运行时, 与 cpu 交互的主要是 cpu 缓存, 此时可能会出现不同 cpu 缓存中的数据不一致的情况
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230115181751188.png) 
+![image-2020030601](../java/image-2020030602.png) 
 
 ## 四 : 内存模型的含义
 

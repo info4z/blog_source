@@ -1,15 +1,12 @@
 ---
 title: shell入门
+excerpt: Linux三剑客, grep主打查找功能, sed主要是编辑, awk主要是分割处理
 date: 2023-01-27
-categories:
-- 服务器
-tags: 
-- shell
+categories: 服务器
+tags:  shell
 ---
 
 
-
-> Linux三剑客, grep主打查找功能, sed主要是编辑, awk主要是分割处理
 
 
 
@@ -558,5 +555,3 @@ cut 命令的默认分隔符是制表符, 也就是 `tab` 键, **不支持空格
 ```
 
 
-
-# 

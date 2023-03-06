@@ -1,18 +1,12 @@
 ---
 title: Arthas
+excerpt: java 诊断工具, 用于生产环境调错
 date: 2023-01-13
-tags: 
-- 监控
-- 诊断
-categories:
-- 服务器
+categories: 服务器
+tags: 诊断
 ---
 
 
-
-
-
-> java 诊断工具, 用于生产环境调错
 
 
 

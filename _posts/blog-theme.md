@@ -1,13 +1,9 @@
 ---
 title: 博客美化
+excerpt: hexo 提供了博客的骨架, 通过 kaze 使其丰满起来吧
 date: 2019-12-24 23:16:00
-categories:
-- 博客搭建
+categories: 博客搭建
 ---
-
-
-
-> hexo 提供了博客的骨架, 通过 kaze 使其丰满起来吧
 
 
 

@@ -1,16 +1,12 @@
 ---
 title: AQS抽象队列同步器
+excerpt: AQS, abstract queue synchronizer, 抽象队列同步器
 date: 2020-05-08
-categories:
-- 高性能编程
-tags: 
-- 多线程并发编程
-- J.U.C并发编程包
+categories: 高性能编程
+tags: [多线程并发编程, J.U.C并发编程包]
 ---
 
 
-
-> AQS : abstract queue synchronizer, 抽象队列同步器
 
 
 
@@ -30,7 +26,7 @@ tags:
 
 可以用在各种需要控制资源争用的场景中(ReentrantLock/CountDownLatch/Semahpore)
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230128175042201.png)
+![image-2020050801](../java/image-2020050801.png)
 
 其中定义的接口可以分为**独占资源**接口和**共享资源**接口两类; 其中独占资源接口包括 acquire, release, tryAcquire(未实现), tryRelease(未实现); 而共享资源接口则包括 acquireShared, releaseShared, tryAcquireShared(未实现), tryReleaseShared(未实现)
 
@@ -137,5 +133,5 @@ public class AQSdemo {
 
 ## 三 : 资源占用流程(acquire)
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/94287e08-e18f-4bac-a9c7-0abe7af2d160-8352070.jpg)
+![image-2020050802](../java/image-2020050802.jpg)
 

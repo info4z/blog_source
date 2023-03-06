@@ -1,16 +1,10 @@
 ---
 title: Netty线程模型
+excerpt: 了解netty的组成结构, 同时要结合源码学习它的设计模式
 date: 2020-07-17
-categories:
-- 高性能编程
-tags: 
-- 高并发网络编程
-- Netty
+categories: 高性能编程
+tags: [高并发网络编程, Netty]
 ---
-
-
-
-> 了解netty的组成结构, 同时要结合源码学习它的设计模式
 
 
 
@@ -31,7 +25,7 @@ Netty 重要的四个内容
 
 ## 二 : Netty 整体结构
 
-![官网图片](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230207175107736.png) 
+![image-2020071701](../java/image-2020071701.png) 
 
 可以看出包含三大块 
 
@@ -45,7 +39,7 @@ Netty 重要的四个内容
 
 为了让 NIO 处理更好的利用多线程特性, Netty 实现了 Reactor 线程模型
 
-![线程模型](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230207180242585.png) 
+![image-2020071702](../java/image-2020071702.png) 
 
 Reactor 模型中有四个核心概念 : 
 
@@ -60,7 +54,7 @@ Reactor 模型中有四个核心概念 :
 
 如图所示, 两组 EventLoopGroup (Main&Sub) 处理不同通道的事件
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230207180903910.png) 
+![image-2020071703](../java/image-2020071703.png) 
 
 源码示例 : example
 
@@ -119,7 +113,7 @@ public final class EchoServer {
 
 EventLoop 自身实现了 Executor 接口, 当调用 executor 方法提交任务时, 则判断是否启动, 未启动则调用内置的 executor 创建新线程来触发 run() 执行
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230207185639209.png) 
+![image-2020071704](../java/image-2020071704.png) 
 
 
 
@@ -127,7 +121,7 @@ EventLoop 自身实现了 Executor 接口, 当调用 executor 方法提交任务
 
 如图所示
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230207190104367.png)  
+![image-2020071705](../java/image-2020071705.png)  
 
 
 

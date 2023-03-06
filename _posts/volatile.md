@@ -1,18 +1,12 @@
 ---
 title: 使用volatile解决可见性问题及阻止指令重排序
+excerpt: 使用 volatile 解决可见性问题及阻止指令重排序, 了解 volatile 在 jmm 中的具体实现
 date: 2020-03-20
-categories:
-- 高性能编程
-tags: 
-- 多线程并发编程
-- 线程安全
+categories: 高性能编程
+tags: [多线程并发编程, 线程安全]
 ---
 
 
-
-
-
-> 使用 volatile 解决可见性问题及阻止指令重排序, 了解 volatile 在 jmm 中的具体实现
 
 
 

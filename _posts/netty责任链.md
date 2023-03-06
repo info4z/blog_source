@@ -1,16 +1,12 @@
 ---
-title: netty责任链
+title: Netty责任链
+excerpt: netty的责任链称为pipeline, 类似流水线作业, 一定要结合源码, 多看几遍
 date: 2020-07-24
-categories:
-- 高性能编程
-tags: 
-- 高并发网络编程
-- Netty
+categories: 高性能编程
+tags: [高并发网络编程, Netty]
 ---
 
 
-
-> netty的责任链称为pipeline, 类似流水线作业, 一定要结合源码, 多看几遍
 
 
 
@@ -19,7 +15,10 @@ tags:
 责任链模式(Chain of Responsibility Pattern)为请求创建了一个处理对象的链。
 **发起请求和具体处理请求的过程进行解耦** : 职责链上的处理者负责处理请求，客户只需要将请求发送到职责链上即可, 无须关心请求的处理细节和请求的传递
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230207212922203.png)
+```mermaid
+graph LR
+请求 --> 责任链调用 --chains--> handler1 --> handler2 --> handler3 --> handler-n --> ... 
+```
 
 ### (一) : 实现责任链模式
 
@@ -92,7 +91,7 @@ void Process( request){
 
 创建新channel时自动创建一个专有的pipeline。入站**事件**和出站**操作**会调用pipeline上的处理器
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230207215047975.png) 
+![](../java/image-2020072401.png) 
 
 
 
@@ -191,7 +190,10 @@ p.addLast("5", new InboundOutboundHandlerX()); // 聚合处理器
 
 按之前伪代码逻辑, 现在的责任链如图所示
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230210151919349.png) 
+```mermaid
+graph TD
+E[ChannelDuplexHandler5] --- D[Outbound Handler 4] --- C[Outbound Handler 3] --- B[Inbound Handler 2] --- A[Inbound Handler 1] 
+```
 
 由此可以推断 : 
 
@@ -215,19 +217,19 @@ p.addLast("5", new InboundOutboundHandlerX()); // 聚合处理器
 
 ### (一) 分析 registered 入站事件的处理
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230211135536424.png) 
+![](../java/image-2020072402.png) 
 
 ServerSocketChannel.pipeline的变化
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230211135748415.png) 
+![image-2020072403](../java/image-2020072403.png) 
 
 ### (二) 分析 bind 出站事件的处理
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230211140021280.png) 
+![image-2020072404](../java/image-2020072404.png) 
 
 ### (三) 分析 accept 入站事件的处理
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230211140848456.png) 
+![image-2020072405](../java/image-2020072405.png) 
 
 这是一个分配的过程，main Group负责accept，然后分配sub Group负责read
 
@@ -235,7 +237,7 @@ ServerSocketChannel.pipeline的变化
 
 pipeline分析的关键4要素:什么事件、有哪些处理器、哪些会被触发、执行顺序
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230211141208378.png) 
+![image-2020072406](../java/image-2020072406.png) 
 
 
 

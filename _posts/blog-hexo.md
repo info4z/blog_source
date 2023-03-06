@@ -1,13 +1,13 @@
 ---
 title: 博客搭建
+excerpt: 基于 hexo 在 github 上搭建属于自己的博客
 date: 2019-12-24 22:42:54
-categories:
-- 博客搭建
+categories: 博客搭建
 ---
 
 
 
-> 基于 hexo 在 github 上搭建属于自己的博客
+
 
 ## 一 : nodejs
 

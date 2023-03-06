@@ -1,16 +1,10 @@
 ---
-title: netty零拷贝
+title: Netty零拷贝
+excerpt: 使用ByteBuf是Netty高性能很重要的一个原因 !
 date: 2020-07-31
-categories:
-- 高性能编程
-tags: 
-- 高并发网络编程
-- Netty
+categories: 高性能编程
+tags: [高并发网络编程, Netty]
 ---
-
-
-
-> 使用ByteBuf是Netty高性能很重要的一个原因 !
 
 
 
@@ -51,7 +45,7 @@ ByteBuf 三个**重要属性** : capacity容量、readerIndex读取位置、writ
 
 下图显示了一个缓冲区是如何被两个指针分割成三个区域的
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230211142430013.png) 
+![image-2020073101](../java/image-2020073101.png) 
 
 代码示例
 
@@ -136,7 +130,7 @@ capacity默认值:256字节、最大值:Integer.MAX_VALUE ( 2GB)
 
 3个维度, 8种实现
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230211150118950.png) 
+![image-2020073102](../java/image-2020073102.png) 
 
 unsafe意味着不安全的操作。但是更底层的操作会带来性能提升和特殊功能, Netty中会尽力使用unsafe。
 
@@ -222,7 +216,7 @@ PoolChunk里面维护了内存引用，内存复用的做法就是把 buf 的 me
 
 PooledByteBufAllocator.ioBuffer**运作过程**梳理
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230211154920014.png) 
+![image-2020073103](../java/image-2020073103.png) 
 
 ## 六 : 零拷贝机制
 
@@ -230,7 +224,7 @@ Netty的零拷贝机制，是一种应用层的实现。和底层JVM、操作系
 
 CompositeByteBuf，将多个ByteBuf合并为一个逻辑上的ByteBuf，避免了各个ByteBuf之间的拷贝
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230211155954409.png)  
+![image-2020073104](../java/image-2020073104.png)  
 
 ```java
 CompositeByteBuf compositeByteBuf = Unpooled.compositeBuffer();
@@ -239,7 +233,7 @@ ByteBuf newBuffer = compositeByteBuf.addComponents(true, buffer1, buffer2);
 
 wrapedBuffer()方法，将byte[]数组包装成ByteBuf对象。
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230211155705843.png) 
+![image-2020073105](../java/image-2020073105.png) 
 
 ```java
 ByteBuf newBuffer = Unpooled.wrappedBuffer(new byte[]{1,2,3,4,5]);
@@ -247,7 +241,7 @@ ByteBuf newBuffer = Unpooled.wrappedBuffer(new byte[]{1,2,3,4,5]);
 
 slice()方法。将一个ByteBuf对象切分成多个ByteBuf对象。
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230211155745627.png) 
+![image-2020073106](../java/image-2020073106.png) 
 
 ```java
 ByteBuf buffer1 = Unpooled.wrappedBuffer("hello".getBytes());ByteBuf newBuffer = buffer1.slice(1,2);

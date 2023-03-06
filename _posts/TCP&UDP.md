@@ -1,16 +1,12 @@
 ---
 title: TCP/UDP协议
+excerpt: TCP协议和UDP协议为传输层提供了可靠的端口到端口的数据传输服务
 date: 2020-06-19
-categories:
-- 高性能编程
-tags: 
-- 高并发网络编程
-- NIO网络编程
+categories: 高性能编程
+tags: [高并发网络编程, NIO网络编程]
 ---
 
 
-
-> TCP协议和UDP协议为传输层提供了可靠的端口到端口的数据传输服务
 
 
 
@@ -18,7 +14,7 @@ tags:
 
 为使不同计算机厂家的计算机能够互相通信, 以便在更大的范围内建立计算机网络, 有必要建立一个国际范围的网络体系结构标准
 
-![OSI 网络七层模型](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230201232113066.png) 
+![OSI 网络七层模型](../java/image-2020061901.png) 
 
 也就是说 101010111100 中包含的数据内容为 : MAC 头部 + LLC 头部 + IP 头部 + TCP 头部 + 数据
 
@@ -48,7 +44,7 @@ tags:
 
 传输控制协议(TCP) 使 Internet 一个重要的传输层协议; TCP 提供面向连接, 可靠, 有序, 字节流传输服务; 应用程序在使用 TCP 之前, 必须先建立 TCP 连接
 
-![TCP头信息](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230201233011214.png) 
+![](../java/image-2020061902.png) 
 
 标志位说明
 
@@ -67,11 +63,11 @@ tags:
 
 三次握手过程
 
-![三次握手](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230201233349204.png) 
+![三次握手](../java/image-2020061903.png)  
 
 四次挥手过程
 
-![四次挥手](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230201233515235.png) 
+![四次挥手](../java/image-2020061904.png) 
 
 
 
@@ -79,7 +75,7 @@ tags:
 
 用户数据报协议 UDP 是 Internet 传输层协议; 提供无连接, 不可靠, 数据报尽力传输服务
 
-![UDP数据结构](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230201233711802.png) 
+![UDP数据结构](../java/image-2020061905.png) 
 
 开发应用人员在 **UDP 上构建应用, 关注以下几点 :** 
 

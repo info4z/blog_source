@@ -1,16 +1,10 @@
 ---
 title: Lock接口和ReentrantLock/ReadWriteLock
+excerpt: JAVA 还提供了锁相关的一些API, 可以更加灵活的实现控制锁的获取和释放
 date: 2020-04-24
-categories:
-- 高性能编程
-tags: 
-- 多线程并发编程
-- 线程安全
+categories: 高性能编程
+tags: [多线程并发编程, 线程安全]
 ---
-
-
-
-> JAVA 还提供了锁相关的一些API, 可以更加灵活的实现控制锁的获取和释放
 
 
 

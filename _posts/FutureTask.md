@@ -1,14 +1,10 @@
 ---
 title: FutureTask源码剖析
+excerpt: 通过Future了解到Callable和Runnable的内在区别
 date: 2020-06-12
-categories:
-- 高性能编程
-tags: 
-- 多线程并发编程
-- J.U.C并发编程包
+categories: 高性能编程
+tags: [多线程并发编程, J.U.C并发编程包]
 ---
-
-> 通过Future了解到Callable和Runnable的内在区别
 
 
 
@@ -16,7 +12,7 @@ tags:
 
 Future 表示异步计算的结果, 提供了用于检查计算是否完成, 等待计算完成以及获取结果的方法
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230201191947464.png)
+![image-2020061201](../java/image-2020061201.png)
 
 Future 和 Callable
 
@@ -50,7 +46,7 @@ Future 和 Callable
 
 ## 二 : FutureTask 应用
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230201192146661.png) 
+![image-2020061202](../java/image-2020061202.png) 
 
 总的执行时间, 取决于执行最慢的逻辑
 

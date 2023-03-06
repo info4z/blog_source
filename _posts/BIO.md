@@ -1,14 +1,12 @@
 ---
 title: BIO阻塞式网络编程
+excerpt: BIO, Blocking IO, 阻塞式IO
 date: 2020-07-03
-categories:
-- 高性能编程
-tags: 
-- 高并发网络编程
-- NIO网络编程
+categories: 高性能编程
+tags: [高并发网络编程, NIO网络编程]
 ---
 
-> BIO : Blocking IO, 阻塞式IO
+
 
 
 

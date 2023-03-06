@@ -1,14 +1,10 @@
 ---
 title: Fork/Join并发处理框架
+excerpt: ResursiveAction, RecursiveTask
 date: 2020-06-05
-categories:
-- 高性能编程
-tags: 
-- 多线程并发编程
-- J.U.C并发编程包
+categories: 高性能编程
+tags: [多线程并发编程, J.U.C并发编程包]
 ---
-
-> ResursiveAction, RecursiveTask
 
 
 
@@ -34,7 +30,21 @@ fork/join 框架将任务分配给线程池中的工作线程, 充分利用多�
 
 关键点 :  : 分解任务fork出新任务, 汇集join任务执行结果
 
-![](https://gcore.jsdelivr.net/gh/info4z/blog_images@main/images/image-20230201161307792.png)
+```mermaid
+graph TD
+提交任务 --> ForkJoinTask
+ForkJoinTask --fork--> process-1
+process-1 --> process-1.1
+process-1 --> process-1.2
+
+ForkJoinTask --fork--> process-2
+process-2 --> process-2.1
+process-2 --> process-2.2
+process-2.1 -. join .-> process-2
+process-2.2 -. join .-> process-2
+```
+
+
 
 ## 三 : 经典网关场景, 查询多个系统数据
 
