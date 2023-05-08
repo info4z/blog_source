@@ -119,7 +119,7 @@ Parallel 是 JDK1.8 的默认收集器, 适用于**吞吐量优先**
 | -XX:+CMSFullGCsBeforeCompaction     | 设置进行几次Full GC后,进行一次碎片整理                       |
 | -XX:+CMSClassUnloadingEnabled       | 允许对类元数据进行回收                                       |
 | -XX:+UseCMSInitiatingOccupancyOnly  | 表示只在到达阀值的时候,才进行CMS回收                         |
-| -XX:+CMSIncrementalMode             | 使用增量模式,比较适合单 CPU                                  |
+| -XX:+CMSIncrementalMode             | 使用增量模式,比较适合单 CPU,**不再维护**                     |
 
 
 

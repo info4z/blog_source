@@ -34,7 +34,7 @@ categories: 博客搭建
 * `npm` 有时候不是特别好用, 可以使用 `cnpm`
 
   ```sh
-  $ npm install -g cnpm --registry=https://registry.npm.taobao.org
+  $ npm install -g cnpm --registry=http://registry.npm.taobao.org
   ```
 
 * 安装过程中可能会出现无法加载文件的问题, 解决方案如下

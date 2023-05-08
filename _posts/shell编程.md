@@ -3,10 +3,8 @@ title: shell编程
 excerpt: 熟练掌握shell的语法, 写出优雅的脚本
 #index_img: 
 date: 2023-02-03
-categories:
-- 服务器
-tags: 
-- shell
+categories: 服务器
+tags: shell
 ---
 
 
