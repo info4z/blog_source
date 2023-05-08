@@ -1,6 +1,6 @@
 ---
 title: docker集群服务
-excerpt: Swarm提供了docker容器的集群服务,虽然不太火,但是生在上手容易
+excerpt: Swarm提供了docker容器的集群服务,虽然不太火,但是胜在上手容易
 date: 2021-03-26
 categories: 容器化技术
 tags: [docker, docker实践]
@@ -115,7 +115,7 @@ $ docker node ls
 **1: 新建服务,** 在创建好的 Swarm 集群中运行一个名为 nginx 服务
 
 ```shell
-$ docker service create --replicas 3 -p 80:80 --name nginx nginx:latest
+$ docker service create --replicas 3 -p 8888:80 --name nginx nginx:latest
 # 短格式可能不会监听ipv4的端口,用长格式[mode=host],published=<externport>,target=<internport>
 # 这里说明一下mode的取值: mode=[ingress|host]
 ## ingress把端口映射到整个swarm的网络,从而访问swarm网络的任何一台主机都可以,即使这台主机没有容器运行
@@ -204,8 +204,6 @@ $ docker service scale nginx=3
 # 查看副本情况
 docker service ls 
 ```
-
-
 
 ### (二) portainer 方式
 
