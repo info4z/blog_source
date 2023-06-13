@@ -85,6 +85,31 @@ location [=|~*|^~|@]/uri/[...]
 | /uri     | 不带任何修饰符, 也表示前缀匹配, 但是在正则匹配之后           |
 | /        | 通用匹配, 任何未匹配到其它location的请求都会匹配到, 相当于switch中的default |
 
+配置示例
+
+```nginx
+# 前端页面
+location / {
+    root /opt/web;
+}
+# 后端接口
+location /api {
+    proxy_pass http://127.0.0.1:5000;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+}
+# socket接口
+location /socket.io/ {
+    proxy_pass http://127.0.0.1:5000;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_http_version 1.1;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $host;
+}
+```
+
 
 
 ## 四 : Nginx常规配置

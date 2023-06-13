@@ -76,3 +76,9 @@ create user 'zhang'@'%' identified with mysql_native_password by 'Zhang@123';
 select Host,user,authentication_string,password_expired,plugin from mysql.user;
 ```
 
+删除用户
+
+```sql
+drop user 'zhang'@'%';
+```
+

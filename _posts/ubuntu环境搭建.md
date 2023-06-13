@@ -67,18 +67,18 @@ zhang ALL=(ALL) NOPASSWD:ALL
 $ vim /etc/ssh/sshd_config
 ```
 
-禁止密码登录
-
-```properties
-#PasswordAuthentication yes
-PasswordAuthentication no
-```
-
 禁止root远程登录
 
 ```properties
 #PermitRootLogin yes
 PermitRootLogin no
+```
+
+禁止密码登录
+
+```properties
+#PasswordAuthentication yes
+PasswordAuthentication no
 ```
 
 修改默认端口
@@ -94,6 +94,12 @@ Port 59527
 #ListenAddress 0.0.0.0
 ListenAddress 192.168.88.100	
 # 只能通过192.168.88.100连接这台服务器
+```
+
+重启 sshd 生效
+
+```shell
+systemctl restart sshd
 ```
 
 

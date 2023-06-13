@@ -21,7 +21,7 @@ tags: ssl
 使用 yum 安装即可
 
 ```shell
-[root@localhost]# yum list installed certbot
+[root@localhost]# yum install -y certbot
 ```
 
 ## 三 : 申请证书
@@ -60,10 +60,26 @@ Key is saved at:         /etc/letsencrypt/live/www.info4z.com/privkey.pem
 [root@localhost]# vim /etc/nginx/conf.d/www.info4z.com.conf
 ```
 
+替换新的证书
+
 ```nginx
-# 替换新的证书
-ssl_certificate      /etc/letsencrypt/live/www.info4z.com/fullchain.pem;
-ssl_certificate_key  /etc/letsencrypt/live/www.info4z.com/privkey.pem;
+server {
+    listen 443 ssl;
+    server_name www.info4z.com;
+
+    ssl_certificate      /etc/letsencrypt/live/www.info4z.com/fullchain.pem;
+    ssl_certificate_key  /etc/letsencrypt/live/www.info4z.com/privkey.pem;
+}
+```
+
+设置http转换https
+
+```nginx
+server {
+	listen 80;
+	server_name	www.info4z.com;
+	return 301 https://$server_name$request_uri;
+}
 ```
 
 修改完毕后重启 nginx 即可
@@ -84,19 +100,28 @@ certbot renew
 
 ```shell
 # 新建 certbot-auto-renew-cron
-vim certbot-auto-renew-cron
+[root@localhost]# vim certbot-auto-renew-cron
 # --pre-hook: 表示执行更新操作之前要做的事情
 # --post-hook: 表示执行更新操作完成后要做的事情
-# cron表达式(分 时 日 月 周几): 从1月开始每个2个月的1日2点15分执行一次
-15 2 1 1/2 ? certbot renew --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx"
+# cron表达式(分 时 日 月 周几): 每隔2个月的1日2点15分执行一次
+15 2 1 */2 * certbot renew --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx"
 ```
 
 ```shell
 # 启动定时任务
-crontab certbot-auto-renew-cron
+[root@localhost]# crontab certbot-auto-renew-cron
 ```
 
 
 
+## 六 : 撤回证书
 
+主要就是撤回证书, 然后删掉域名即可, 基本不用
+
+```shell
+# 撤回证书
+[root@localhost]# certbot revoke --cert-path /etc/letsencrypt/live/www.info4z.com/cert.pem
+# 移除域名
+[root@localhost]# certbot delete --cert-name www.info4z.com
+```
 
