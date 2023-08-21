@@ -111,25 +111,25 @@ systemctl restart sshd
 lrzsz : 上传下载
 
 ```shell
-$ apt install -y lrzsz
+$ sudo apt install -y lrzsz
 ```
 
 unzip : 解压缩
 
 ```shell
-$ apt install -y unzip
+$ sudo apt install -y unzip
 ```
 
 rsync : 文件同步
 
 ```shell
-$ apt install -y rsync
+$ sudo apt install -y rsync
 ```
 
 expect : 交互式脚本
 
 ```shell
-$ apt install -y expect
+$ sudo apt install -y expect
 ```
 
 ### (二) 开发工具
@@ -137,19 +137,19 @@ $ apt install -y expect
 openjdk
 
 ```sh
-$ apt install -y openjdk-8-jdk
+$ sudo apt install -y openjdk-8-jdk
 ```
 
 git
 
 ```shell
-$ apt install -y git
+$ sudo apt install -y git
 ```
 
 maven : 项目管理
 
 ```shell
-$ apt install -y maven
+$ sudo apt install -y maven
 ```
 
 
@@ -159,14 +159,14 @@ $ apt install -y maven
 ### (一) Nginx
 
 ```shell
-$ apt install -y nginx
+$ sudo apt install -y nginx
 ```
 
 ### (二) Redis
 
 ```shell
 # 安装redis
-$ apt install -y redis-server
+$ sudo apt install -y redis-server
 
 # 修改配置文件
 vim /etc/redis/redis.conf
@@ -179,7 +179,7 @@ requirepass 123456 			# 如果需要密码认证,放开这行的注释,这里密
 
 ```shell
 # 安装rabbit
-$ apt install -y rabbitmq-server
+$ sudo apt install -y rabbitmq-server
 ```
 
 
@@ -190,7 +190,7 @@ $ apt install -y rabbitmq-server
 
 ```sh
 # 安装
-$ apt install -y mysql-server
+$ sudo apt install -y mysql-server
 
 # 修改密码
 $ alter user 'root'@'localhost' identified with caching_sha2_password by 'root';
@@ -209,7 +209,7 @@ $ grant all on *.* to 'zhang'@'%';
 ### (一) phpmyadmin
 
 ```sh
-$ apt install -y phpmyadmin
+$ sudo apt install -y phpmyadmin
 ```
 
 
@@ -218,7 +218,7 @@ $ apt install -y phpmyadmin
 
 ```sh
 # 安装
-$ apt install -y certbot
+$ sudo apt install -y certbot
 # 申请证书
 $ certbot certonly
 ```

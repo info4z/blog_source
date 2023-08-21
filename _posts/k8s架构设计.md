@@ -1,5 +1,5 @@
 ---
-title: Kubernetes架构设计
+title: kubernetes架构设计
 excerpt: 了解k8s的设计理念和核心概念有助于轻松入门
 date: 2021-04-09
 categories: 容器化技术

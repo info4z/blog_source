@@ -67,6 +67,8 @@ set global validate_password.policy = 0;
 alter user 'root'@'localhost' identified by 'root';
 ```
 
+## 三 : 普通账户
+
 创建普通账户
 
 ```sql
@@ -74,6 +76,10 @@ alter user 'root'@'localhost' identified by 'root';
 create user 'zhang'@'%' identified with mysql_native_password by 'Zhang@123';
 -- 最好检查一下加密规则是否符合预期
 select Host,user,authentication_string,password_expired,plugin from mysql.user;
+-- 给普通账户授权
+grant all on *.* to 'zhang'@'%';
+-- 刷新权限
+flush privileges;
 ```
 
 删除用户
@@ -81,4 +87,3 @@ select Host,user,authentication_string,password_expired,plugin from mysql.user;
 ```sql
 drop user 'zhang'@'%';
 ```
-

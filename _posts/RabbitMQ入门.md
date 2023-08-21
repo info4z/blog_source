@@ -35,7 +35,7 @@ wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.7.28/rabbi
 rpm -ivh rabbitmq-server-3.7.28-1.el7.noarch.rpm
 ```
 
-使用命令
+启动命令
 
 ```shell
 # 启动
@@ -91,9 +91,9 @@ firewall-cmd --reload
 
 
 
-## 四 : 使用
+## 四 : 插件
 
-### (一) 管理界面
+### (一) web管理界面
 
 RabbitMQ安装包中带有管理插件, 但需要手动激活
 
@@ -134,9 +134,38 @@ RabbitMQ 的用户角色(tags)分类 : none、management、policymaker、monitor
 | monitoring    | 1.management可以做的任何事<br>2.列出所有virtual hosts, 包括他们不能登录的virtual hosts<br>3.查看其他用户的connections和channels<br>4.查看节点级别的数据如clustering和memory使用情况<br>5.查看真正的关于所有virtual hosts的全局的统计信息 |
 | administrator | 1.policymaker和monitoring可以做的任何事<br>2.创建和删除virtual hosts<br>3.查看、创建和删除users<br>4.查看创建和删除permissions<br>5.关闭其他用户的connections |
 
+### (二) 延迟消息插件
+
+下载
+
+```shell
+wget https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/download/v3.8.0/rabbitmq_delayed_message_exchange-3.8.0.ez
+```
+
+安装插件
+
+```shell
+# 查找rabbitmq安装包全名
+rpm -qa | grep rabbit
+# 查找插件位置
+rpm -ql rabbitmq-server-3.7.28-1.el7.noarch | grep plugins
+# 安装插件
+cd /usr/lib/rabbitmq/lib/rabbitmq_server-3.7.28/plugins/
+cp /usr/local/src/rabbitmq/rabbitmq_delayed_message_exchange-3.8.0.ez ./
+```
+
+激活插件
+
+```shell
+rabbitmq-plugins list
+rabbitmq-plugins enable rabbitmq_delayed_message_exchange
+```
 
 
-### (二) java中使用
+
+## 五 : 使用
+
+### (一) java中使用
 
 maven 依赖
 
